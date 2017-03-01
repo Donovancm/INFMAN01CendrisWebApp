@@ -15,7 +15,7 @@ namespace InfomationManagementCendrisWebApp.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Wie zijn wij";
 
             return View();
         }

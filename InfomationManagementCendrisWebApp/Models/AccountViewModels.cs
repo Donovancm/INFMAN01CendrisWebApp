@@ -79,6 +79,10 @@ namespace InfomationManagementCendrisWebApp.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [Display(Name = "Trying out dropdown")]
+        public string whut { get; set; }
     }
 
     public class ResetPasswordViewModel
