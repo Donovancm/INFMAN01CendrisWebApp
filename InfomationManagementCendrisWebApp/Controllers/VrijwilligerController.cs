@@ -11,7 +11,7 @@ namespace InfomationManagementCendrisWebApp.Controllers
         // GET: /Vrijwilliger/
         public ActionResult Index()
         {
-            ViewBag.Message = "Vrijwilliger";
+            ViewBag.Message = "Vrijwilliger boiiii";
 
             return View();
         }
