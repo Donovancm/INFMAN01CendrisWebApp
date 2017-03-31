@@ -22,7 +22,14 @@ namespace InfomationManagementCendrisWebApp.Controllers
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Contact";
+
+            return View();
+        }
+
+        public ActionResult AskForHelp()
+        {
+            ViewBag.Message = "Hulp Nodig?";
 
             return View();
         }

@@ -253,6 +253,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Vrijwilliger\Index.cshtml" />
     <Content Include="Views\Vrijwilliger\Dashboard.cshtml" />
+    <Content Include="Views\Home\AskForHelp.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
