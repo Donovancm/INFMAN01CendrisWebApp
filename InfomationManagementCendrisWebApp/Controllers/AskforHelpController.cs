@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace InfomationManagementCendrisWebApp.Controllers
 {
-    public class AskforHelpController : Controller
+    public class AskForHelpController : Controller
     {
         // GET: AskforHelp
         public ActionResult Index()

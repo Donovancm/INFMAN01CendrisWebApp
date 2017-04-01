@@ -180,7 +180,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AskforHelpController.cs" />
+    <Compile Include="Controllers\AskForHelpController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\VrijwilligerController.cs" />
@@ -254,7 +254,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Vrijwilliger\Index.cshtml" />
     <Content Include="Views\Vrijwilliger\Dashboard.cshtml" />
-    <Content Include="Views\Home\AskForHelp.cshtml" />
+    <Content Include="Views\AskForHelp\Index.cshtml" />
     <Content Include="Views\Activiteiten\Dashboard.cshtml" />
     <Content Include="Views\Activiteiten\Index.cshtml" />
     <Content Include="Views\Home\Activiteiten.cshtml" />
@@ -262,7 +262,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="SponsorPages\" />
-    <Folder Include="Views\AskforHelp\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
