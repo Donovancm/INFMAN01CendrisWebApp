@@ -33,5 +33,11 @@ namespace InfomationManagementCendrisWebApp.Controllers
 
             return View();
         }
+        public ActionResult Activiteiten()
+        {
+            ViewBag.Message = "Beschikbare Activiteiten";
+
+            return View();
+        }
     }
 }
