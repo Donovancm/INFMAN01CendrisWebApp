@@ -84,6 +84,28 @@ namespace InfomationManagementCendrisWebApp.Models
         [Display(Name = "Trying out dropdown")]
         public string whut { get; set; }
     }
+    public class RegisterActiviteitViewModel
+    {
+        [Required]
+        [Display(Name = "Naam")]
+        public string NaamOuderen { get; set; }
+ 
+        [Required]
+        [Display(Name = "Activiteit")]
+        public string ActiviteitNaam { get; set; }
+
+        [Required]
+        [Display(Name = "Locatie")]
+        public string LocatieActiviteit { get; set; }
+
+        [Required]
+        [Display(Name = "Tijd")]
+        public string TijdActiviteit { get; set; }
+
+        [Required]
+        [Display(Name = "Tijdsduur")]
+        public string DurationActiviteit { get; set; }
+    }
 
     public class ResetPasswordViewModel
     {
