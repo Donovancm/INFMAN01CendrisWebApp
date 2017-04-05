@@ -18,7 +18,19 @@
     <div class="form-group">
         @Html.LabelFor(m => m.ActiviteitNaam, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.TextBoxFor(m => m.ActiviteitNaam, new { @class = "form-control" })
+            @Html.TextBoxFor(m => m.ActiviteitNaam, new { @class = "form-control", placeholder = "Bijvoorbeeld: Wandelen" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Verzorgingstehuis, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Verzorgingstehuis, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Adres, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Adres, new { @class = "form-control" })
         </div>
     </div>
     <div class="form-group">
@@ -28,26 +40,36 @@
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.TijdActiviteit, new { @class = "col-md-2 control-label" })
+        @Html.LabelFor(m => m.Datum, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.TextBoxFor(m => m.TijdActiviteit, new { @class = "form-control" })
+            @Html.TextBoxFor(m => m.Datum, new { @class = "form-control" })
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.DurationActiviteit, new { @class = "col-md-2 control-label" })
+        @Html.LabelFor(m => m.BeginTijd, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.DropDownListFor(m => m.DurationActiviteit, new SelectListItem[]
+            @Html.TextBoxFor(m => m.BeginTijd, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Tijdsduur, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.Tijdsduur, new SelectListItem[]
                  {
                     new SelectListItem {Value = "1", Text = "1"},
                     new SelectListItem {Value = "2", Text = "2"},
-                    new SelectListItem {Value = "3", Text = "3"}
-                 }, "--- Select Type ---", new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.DurationActiviteit, "", new { @class = "text-danger" })
+                    new SelectListItem {Value = "3", Text = "3"},
+                    new SelectListItem {Value = "4", Text = "4"},
+                    new SelectListItem {Value = "5", Text = "5"},
+                    new SelectListItem {Value = "6", Text = "6"},
+                    new SelectListItem {Value = "7", Text = "7"},
+                 }, "--- Selecteer aantal uur ---", new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Tijdsduur, "", new { @class = "text-danger" })
         </div>
     </div>
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Activiteit doorgeven" />
+            <input type="submit" class="btn btn-default" value="Bevestig activiteit" />
         </div>
     </div>
     }

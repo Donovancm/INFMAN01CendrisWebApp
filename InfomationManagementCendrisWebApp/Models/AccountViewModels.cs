@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace InfomationManagementCendrisWebApp.Models
@@ -92,16 +93,28 @@ namespace InfomationManagementCendrisWebApp.Models
         public string ActiviteitNaam { get; set; }
 
         [Required]
+        [Display(Name = "Verzorgingstehuis")]
+        public string Verzorgingstehuis { get; set; }
+
+        [Required]
+        [Display(Name = "Adres")]
+        public string Adres { get; set; }
+
+        [Required]
         [Display(Name = "Locatie")]
         public string LocatieActiviteit { get; set; }
 
         [Required]
-        [Display(Name = "Tijd")]
-        public string TijdActiviteit { get; set; }
+        [Display(Name = "Datum")]
+        public DateTime Datum { get; set; }
+
+        [Required]
+        [Display(Name = "Begin Tijd")]
+        public DateTime BeginTijd { get; set; }
 
         [Required]
         [Display(Name = "Tijdsduur")]
-        public string DurationActiviteit { get; set; }
+        public int Tijdsduur { get; set; }
     }
 
     public class ResetPasswordViewModel
