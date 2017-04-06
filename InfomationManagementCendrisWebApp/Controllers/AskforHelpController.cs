@@ -1,6 +1,7 @@
 ﻿using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -19,7 +20,9 @@ namespace InfomationManagementCendrisWebApp.Controllers
         // GET: /AskforHelp/Dashboard
         public ActionResult Dashboard()
         {
-            using (NpgsqlConnection conn = new NpgsqlConnection("User ID=postgres;Password=postgres;Host=localhost;Port=5432;Database=tryINFMAN;"))
+            string constr = ConfigurationManager.ConnectionStrings["cendris"].ConnectionString;
+
+            using (NpgsqlConnection conn = new NpgsqlConnection(constr))
             {
                 try
                 {
@@ -27,9 +30,9 @@ namespace InfomationManagementCendrisWebApp.Controllers
                     using (NpgsqlCommand cmd = new NpgsqlCommand())
                     {
                         cmd.Connection = conn;
-                        cmd.CommandText = "INSERT INTO activiteit (name,activiteit) VALUES (@name, @activity)";
-                        cmd.Parameters.Add(new NpgsqlParameter("@name", Convert.ToString(Request["name"])));
-                        cmd.Parameters.Add(new NpgsqlParameter("@activity", Convert.ToString(Request["activity"])));
+                        cmd.CommandText = "INSERT INTO activiteit (name,activiteit) VALUES (@naam, @activiteit)";
+                        cmd.Parameters.Add(new NpgsqlParameter("@naam", Convert.ToString(Request["naam"])));
+                        cmd.Parameters.Add(new NpgsqlParameter("@activiteit", Convert.ToString(Request["activiteit"])));
 
                         // Insert some data
                         cmd.ExecuteNonQuery();
@@ -37,7 +40,7 @@ namespace InfomationManagementCendrisWebApp.Controllers
                     }
                     conn.Close();
                 }
-                catch (Exception e) { Console.WriteLine(e);}
+                catch (Exception e) { Console.WriteLine(e); }
             }
 
             return View();
