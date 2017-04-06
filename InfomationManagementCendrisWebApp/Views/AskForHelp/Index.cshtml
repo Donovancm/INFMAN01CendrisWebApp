@@ -1,80 +1,58 @@
-﻿@model InfomationManagementCendrisWebApp.Models.RegisterActiviteitViewModel
-@{
+﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@using (Html.BeginForm("AskForHelp", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+<h4>Opzetten activiteit voor ouderen</h4>
+
+@using (Html.BeginForm("Dashboard", "AskForHelp", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
-    <h3>@ViewBag.Message</h3>
-    @Html.AntiForgeryToken()
-    <h4>Opzetten activiteit voor ouderen</h4>
-    @Html.ValidationSummary("", new { @class = "text-danger" })
     <div class="form-group">
-        @Html.LabelFor(m => m.NaamOuderen, new { @class = "col-md-2 control-label" })
+        <label class="col-md-2 control-label">Naam</label>
         <div class="col-md-10">
-            @Html.TextBoxFor(m => m.NaamOuderen, new { @class = "form-control" })
+            <input class="form-control" type="text" name="naam" id="naam" />
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.ActiviteitNaam, new { @class = "col-md-2 control-label" })
+        <label class="col-md-2 control-label">Activiteit</label>
         <div class="col-md-10">
-            @Html.TextBoxFor(m => m.ActiviteitNaam, new { @class = "form-control", placeholder = "Bijvoorbeeld: Wandelen" })
+            <input class="form-control" type="text" name="activiteit" id="activiteit" placeholder="Bijvoorbeeld: Wandelen"/>
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.Verzorgingstehuis, new { @class = "col-md-2 control-label" })
+        <label class="col-md-2 control-label">Verzorgingstehuis</label>
         <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Verzorgingstehuis, new { @class = "form-control" })
+            <input class="form-control" type="text" name="tehuis" id="tehuis" />
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.Adres, new { @class = "col-md-2 control-label" })
+        <label class="col-md-2 control-label">Adres</label>
         <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Adres, new { @class = "form-control" })
+            <input class="form-control" type="text" name="adres" id="adres" />
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.LocatieActiviteit, new { @class = "col-md-2 control-label" })
+        <label class="col-md-2 control-label">Locatie Activiteit</label>
         <div class="col-md-10">
-            @Html.TextBoxFor(m => m.LocatieActiviteit, new { @class = "form-control" })
+            <input class="form-control" type="text" name="locatie" id="locatie" />
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.Datum, new { @class = "col-md-2 control-label" })
+        <label class="col-md-2 control-label">Datum en tijd</label>
         <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Datum, new { @class = "form-control" })
+            <input class="form-control" type="datetime" name="datum" id="datum" placeholder="06/05/2017 13:00"/>
         </div>
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.BeginTijd, new { @class = "col-md-2 control-label" })
+        <label class="col-md-2 control-label">Tijdsduur (in uren)</label>
         <div class="col-md-10">
-            @Html.TextBoxFor(m => m.BeginTijd, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Tijdsduur, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(m => m.Tijdsduur, new SelectListItem[]
-                 {
-                    new SelectListItem {Value = "1", Text = "1"},
-                    new SelectListItem {Value = "2", Text = "2"},
-                    new SelectListItem {Value = "3", Text = "3"},
-                    new SelectListItem {Value = "4", Text = "4"},
-                    new SelectListItem {Value = "5", Text = "5"},
-                    new SelectListItem {Value = "6", Text = "6"},
-                    new SelectListItem {Value = "7", Text = "7"},
-                 }, "--- Selecteer aantal uur ---", new { @class = "form-control" })
-            @Html.ValidationMessageFor(m => m.Tijdsduur, "", new { @class = "text-danger" })
+            <input class="form-control" type="number" name="uren" id="uren" />
         </div>
     </div>
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Bevestig activiteit" />
+            <input type="submit" class="btn btn-success form-control" value="Bevestig activiteit" />
         </div>
     </div>
-    }
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
 }
 
 
