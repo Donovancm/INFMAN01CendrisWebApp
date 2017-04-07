@@ -20,7 +20,8 @@ namespace InfomationManagementCendrisWebApp.Controllers
         // GET: /AskforHelp/Dashboard
         public ActionResult Dashboard()
         {
-            string constr = ConfigurationManager.ConnectionStrings["cendris"].ConnectionString;
+            string constr = ConfigurationManager.ConnectionStrings["connection"].ConnectionString;
+            //string constr = "Server=localhost;Port=5432;Database=cendris;User Id=postgres;Password=postgres;";
 
             using (NpgsqlConnection conn = new NpgsqlConnection(constr))
             {
@@ -30,9 +31,13 @@ namespace InfomationManagementCendrisWebApp.Controllers
                     using (NpgsqlCommand cmd = new NpgsqlCommand())
                     {
                         cmd.Connection = conn;
-                        cmd.CommandText = "INSERT INTO activiteit (name,activiteit) VALUES (@naam, @activiteit)";
-                        cmd.Parameters.Add(new NpgsqlParameter("@naam", Convert.ToString(Request["naam"])));
+                        cmd.CommandText = "INSERT INTO activiteit (activiteit,adres,plaats,oudere) VALUES (@activiteit, @adres, @locatie, 1)";
                         cmd.Parameters.Add(new NpgsqlParameter("@activiteit", Convert.ToString(Request["activiteit"])));
+                        cmd.Parameters.Add(new NpgsqlParameter("@adres", Convert.ToString(Request["adres"])));
+                        cmd.Parameters.Add(new NpgsqlParameter("@locatie", Convert.ToString(Request["locatie"])));
+                        //cmd.Parameters.Add(new NpgsqlParameter("@datum", Convert.ToDateTime(Request["datum"])));
+                        //cmd.Parameters.Add(new NpgsqlParameter("@uren", Convert.ToInt32(Request["uren"])));
+                        //cmd.Parameters.Add(new NpgsqlParameter("@naam", Convert.ToString(Request["naam"])));
 
                         // Insert some data
                         cmd.ExecuteNonQuery();
