@@ -9,20 +9,29 @@
     ViewBag.title = "Hulp Bieden";
 }
 
+
 <h2>Openstaande Hulpvragen</h2>
 
-<table class="table table-striped">
-    <tr>
-        <th>Activiteit</th>
-        <th>Locatie</th>
-    </tr>
-    @foreach (Activiteit activity in Model)
-    {
+@foreach (Activiteit activity in Model)
+{
+
+    <table class="table table-striped table-bordered">
         <tr>
-            <td>@activity.activity</td>
-            <td>@activity.location</td>
+            <th>Activiteit ID</th>
+            <td>@activity.id</td>
+            <td></td>
         </tr>
-    }
-</table>
+        <tr>
+            <th>Activiteit</th>
+            <td>@activity.activity</td>
+            <td>@Html.ActionLink("Inschrijven", "ActiviteitenInfo", new { id=activity.id })</td>
+        </tr>
+        <tr>
+            <th>Locatie</th>
+            <td>@activity.location</td>
+            <td></td>
+        </tr>
+    </table>
+}
 
 

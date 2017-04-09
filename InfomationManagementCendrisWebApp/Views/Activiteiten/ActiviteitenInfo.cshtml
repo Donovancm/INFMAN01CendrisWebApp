@@ -1,0 +1,21 @@
+﻿@using InfomationManagementCendrisWebApp.Models
+@model IEnumerable <Activiteit>
+    
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach (Activiteit activity in Model)
+{
+
+    <table class="table table-striped">
+        <tr>
+            <th>Activiteit</th>
+            <td>@activity.activity</td>
+        </tr>
+        <tr>
+            <th>Locatie</th>
+            <td>@activity.location</td>
+        </tr>
+    </table>
+}

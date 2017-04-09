@@ -21,7 +21,6 @@ namespace InfomationManagementCendrisWebApp.Controllers
         public ActionResult Dashboard()
         {
             string constr = ConfigurationManager.ConnectionStrings["connection"].ConnectionString;
-            //string constr = "Server=localhost;Port=5432;Database=cendris;User Id=postgres;Password=postgres;";
 
             using (NpgsqlConnection conn = new NpgsqlConnection(constr))
             {
@@ -31,13 +30,14 @@ namespace InfomationManagementCendrisWebApp.Controllers
                     using (NpgsqlCommand cmd = new NpgsqlCommand())
                     {
                         cmd.Connection = conn;
-                        cmd.CommandText = "INSERT INTO activiteit (activiteit,adres,plaats,oudere) VALUES (@activiteit, @adres, @locatie, 1)";
+                        cmd.CommandText = "INSERT INTO activiteit (activiteit,naam_oudere,verzorgingstehuis,adres,locatie,datumtijd,tijdsduur) VALUES (@activiteit, @naam, @tehuis, @adres, @locatie, @datum, @uren)";
                         cmd.Parameters.Add(new NpgsqlParameter("@activiteit", Convert.ToString(Request["activiteit"])));
+                        cmd.Parameters.Add(new NpgsqlParameter("@naam", Convert.ToString(Request["naam"])));
+                        cmd.Parameters.Add(new NpgsqlParameter("@tehuis", Convert.ToString(Request["tehuis"])));
                         cmd.Parameters.Add(new NpgsqlParameter("@adres", Convert.ToString(Request["adres"])));
                         cmd.Parameters.Add(new NpgsqlParameter("@locatie", Convert.ToString(Request["locatie"])));
-                        //cmd.Parameters.Add(new NpgsqlParameter("@datum", Convert.ToDateTime(Request["datum"])));
-                        //cmd.Parameters.Add(new NpgsqlParameter("@uren", Convert.ToInt32(Request["uren"])));
-                        //cmd.Parameters.Add(new NpgsqlParameter("@naam", Convert.ToString(Request["naam"])));
+                        cmd.Parameters.Add(new NpgsqlParameter("@datum", Convert.ToDateTime(Request["datum"])));
+                        cmd.Parameters.Add(new NpgsqlParameter("@uren", Convert.ToInt32(Request["uren"])));
 
                         // Insert some data
                         cmd.ExecuteNonQuery();

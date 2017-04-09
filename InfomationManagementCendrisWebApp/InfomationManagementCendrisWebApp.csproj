@@ -267,6 +267,7 @@
     <Content Include="Views\Activiteiten\Index.cshtml" />
     <Content Include="Views\Home\Activiteiten.cshtml" />
     <Content Include="Views\AskForHelp\Dashboard.cshtml" />
+    <Content Include="Views\Activiteiten\ActiviteitenInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
